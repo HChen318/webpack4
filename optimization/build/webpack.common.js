@@ -1,19 +1,70 @@
 const path = require("path");
+const fs = require("fs");
 const webpack = require("webpack");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const AddAssetHtmlWebpackPlugin = require("add-asset-html-webpack-plugin");
 
-module.exports = {
-  entry: "./src/index.js",
+const makePlugins = (config) => {
+  const plugins = [
+    new CleanWebpackPlugin(["dist"], {
+      root: path.resolve(__dirname, "../"),
+    }),
+  ];
+
+  Object.keys(config.entry).forEach((item) => {
+    plugins.push(
+      new HtmlWebpackPlugin({
+        template: "src/index.html",
+        filename: `${item}.html`,
+        chunks: ["vendors", item], // 引入的打包文件有哪些
+      })
+    );
+  });
+  const files = fs.readdirSync(path.resolve(__dirname, "../dll"));
+  files.forEach((file) => {
+    if (/.*\.dll.js/.test(file)) {
+      plugins.push(
+        new AddAssetHtmlWebpackPlugin({
+          filepath: path.resolve(__dirname, "../dll", file),
+        })
+      );
+    }
+    if (/.*\.manifest.json/.test(file)) {
+      plugins.push(
+        new webpack.DllReferencePlugin({
+          manifest: path.resolve(__dirname, "../dll", file),
+        })
+      );
+    }
+  });
+  return plugins;
+};
+
+const configs = {
+  // entry: "./src/index.js", // spa
+  entry: {
+    // mpa
+    index: "./src/index.js",
+    list: "./src/list.js",
+  },
   output: {
-    filename: "[name].js",
+    // filename: "[name].js",
     // chunkFilename: '[name],chunk.js',  // 并不是入口js文件，异步加载的间接引用的话生成的名字chunkFilename
     path: path.resolve(__dirname, "../dist"),
+  },
+  resolve: {
+    extensions: [".js", ".jsx"], // 引入其他模块的时候，先到对应目录的以js结尾的文件，jsx结尾的文件
+    // mainFiles: ['index'] // 引入模块文件，省去引用路径
+    // alias: {
+    //   // 别名
+    //   @: path.resolve(__dirname,'../src/child')
+    // },
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: [
           {
@@ -43,23 +94,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new CleanWebpackPlugin(["dist"]), // 打包之前删除dist目录下的所有内容
-    new HtmlWebpackPlugin({
-      template: "src/index.html",
-    }),
-    new CleanWebpackPlugin(["dist"], {
-      root: path.resolve(__dirname, "../"),
-    }),
-    new webpack.ProvidePlugin({
-      // 如果一个模块中使用了$字符串，就会模块里自动里引入jquery模块
-      $: "jquery",
-    }),
-  ],
   optimization: {
-    // runtimeChunk: {  // 对webpack3老版本兼容，如果内容没变更，hash值不同，需要做额外的配置，mian放置的业务逻辑代码，vendors是库，业务逻辑和库关联的代码manifest，旧版的webpack打包manifest可能会有差异，就是他的差异，源代码没变hash也会变
-    //   name: "runtime",
-    // },
     usedExports: true, // webapck会对所有模块tree shaking，有一些模块不希望做tres shaking，这里配置usedExports然后再package sideEffects写一些内容
     splitChunks: {
       chunks: "all", // all>打包同步/异步，async>打包异步
@@ -87,3 +122,7 @@ module.exports = {
     },
   },
 };
+
+configs.plugins = makePlugins(configs);
+
+module.exports = configs;

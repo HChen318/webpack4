@@ -2,7 +2,7 @@
 webpack4
 
 ### lesson1
-#### Webpack 的核心（lesson1）
+#### Webpack核心概念（lesson1）
 - entry
 - output
 - loader > 打包静态资源
@@ -14,12 +14,16 @@ webpack4
 - Webpack 实现对React框架代码的打包
 
 ### lesson2
-#### Webpack 的高级
+#### Webpack高级
 - Tree Shaking
+    - 只支持ES Module,静态引入方式
+    - commjs引入方式是动态引入方式
 - Develoment 和 Production 模式的区分打包，抽取公共部分
+    - webpack-merge
 - Code Splitting
   - 1.同步代码： 只需要在webpack.common.js中做optimization的配置
   - 2.异步代码(import)： 无需做任何配置会自动进行代码分割
+   -  @babel/plugin-syntax-dynamic-import
 - SplitChunksPlugin 配置
 - Lazy Loading 懒加载，Chunk 是什么
 - Preload, Prefetch
@@ -35,6 +39,30 @@ webpack4
 - Shimming的作用(垫片) 
 - 环境变量的使用方法
     - --env.production(全局变量)
+
+### lesson3
+#### Webpack实战配置
+- Library的打包
+- PWA的打包配置
+    - workbox-webpack-plugin插件
+- TypeScript的打包配置
+   - ts-loader,要配置tsconfig.json
+- 使用WebpackDevServer实现请求转发
+    - devServer > proxy
+- WebpackDevServer解决单页面应用路由问题
+    - devServer > historyApiFallback: true
+- EsLint在Webpack中的配置?
+- webpack性能优化
+    - 提高打包速度，可以通过dll
+    - 控制包文件大小
+    - ....
+-  多页面打包配置
+    - entry配置入口
+    - HtmlWebpackPlugin配置多个 > filename chunks
+
+
+
+
 
 
 

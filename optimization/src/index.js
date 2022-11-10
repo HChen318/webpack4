@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import ReactDom from "react-dom";
-import axios from "axios";
+import Child from "./child/child";
 
 class App extends Component {
-  componentDidMount() {
-    axios.get("/react/api/header.json").then((res) => console.log(res));
-  }
-
   render() {
-    return <div>Hello</div>;
+    return (
+      <div>
+        <div>Hello</div>
+        <Child />
+      </div>
+    );
   }
 }
 

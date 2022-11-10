@@ -1,0 +1,8 @@
+{
+  "compilerOpitons": {
+    "outDir": "./dist", 
+    "module": "es6",  
+    "target": "es5",  // 转换成es5
+    "allowJs": true  // 允许引入类型模块 
+  }
+}

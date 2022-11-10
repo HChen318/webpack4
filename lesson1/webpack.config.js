@@ -106,13 +106,23 @@ module.exports = {
     // 起一个http的服务器，默认端口port：8080，会打包代码放到dist目录，放到内存里，提高打包速度
     contentBase: "./dist",
     open: true,
+    // port: 8080,
     hot: true, //  开启HotModuleReplacementPlugin热更新
     hotOnly: true, // 浏览器不会自动刷新
-    // proxy: { // 代理
-    //   "/api": "http: //localhost:3000",
-    // },
+    proxy: {
+      // 代理
+      "/react/api": {
+        target: "http://www.dell-lee.com",
+        // secure: false, // 对https请求转发
+        // pathRewrite: {
+        //   // "header.json": "demo.json",
+        // },
+        changeOrigin: true, // 有一些网站origin做了限制，防止爬虫，设置true突破origin限制
+      },
+    },
   },
-  optimization: {  // dev环境还会有这段代码，但有个提示
+  optimization: {
+    // dev环境还会有这段代码，但有个提示
     // dev环境开启Tree Shaking，在sideEffects配置false，对所有模块进行Tree Shaking。sideEffects作用是有可能引入的是import ‘xxx’ 这时候可能没有模块导出就可能被忽略掉所以要在sideEffects：[import ‘xxx’]加上对应的模块，避免tree shaking
     usedExports: true,
   },
