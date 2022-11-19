@@ -29,7 +29,7 @@ webpack4 配置学习
 [下载node](https://nodejs.org/en/)
 
 ### 1.4 初始化项目
-【[demo](https://github.com/HChen318/webpack4/tree/main/lesson1)】
+【[Demo](https://github.com/HChen318/webpack4/tree/main/lesson1)】
 
 ```bash
 mkdir lesson1   // mac
@@ -2305,7 +2305,7 @@ module.exports = prodConfig;
 ## 四：Webpack实战配置案例
 
 ### Library的打包：库代码通过webpack进行打包
-【[demo](https://github.com/HChen318/webpack4/tree/main/library)】
+【[Demo](https://github.com/HChen318/webpack4/tree/main/library)】
 
 在 webpack.config.js 中： 
 
@@ -2362,7 +2362,6 @@ npm i + 库名
 
 渐进式网络应用程序，PWA 可以用来做很多事。其中最重要的是，在**离线(offline)**时应用程序能够继续运行功能。这是通过使用名为 [Service Workers](https://developers.google.com/web/fundamentals/primers/service-workers/) 的 web 技术来实现的。线上环境时才用到pwa,开发时不需要
 
-仓库源码 【[42](https://github.com/wudiufo/WebPack4-study/tree/master/lesson%2042)】
 
 安装：
 
@@ -2428,7 +2427,7 @@ if ('serviceWorker' in navigator) { //如果浏览器支持serviceWorker，就�
 
 [TypeScript](https://www.typescriptlang.org/) 是 JavaScript 的超集，为其增加了类型系统，可以编译为普通 JavaScript 代码。这篇指南里我们将会学习是如何将 webpack 和 TypeScript 进行集成。
 
-【[demo](https://github.com/HChen318/webpack4/tree/main/type-script)】
+【[Demo](https://github.com/HChen318/webpack4/tree/main/type-script)】
 
 安装：
 
@@ -2466,7 +2465,7 @@ npm install --save-dev @types/lodash
 
 ### 使用 WebpackDevServer 实现请求转发
 
-【[demo](https://github.com/HChen318/webpack4/blob/main/lesson1/src/index6.js)】
+【[Demo](https://github.com/HChen318/webpack4/blob/main/lesson1/src/index6.js)】
 
 安装：
 
@@ -2509,7 +2508,7 @@ devServer: {
        //   }
      //   },
 				pathRewrite: {
-					'header.json': 'demo.json' //最后拿的是demo.json的数据
+					'header.json': 'Demo.json' //最后拿的是demo.json的数据
 				},
 				changeOrigin: true,//解决网站对接口的限制
 				headers: {//变更请求头
@@ -2553,7 +2552,7 @@ devServer: {//配置只在开发时有效，上线时后端也需配置
 				target: 'https://www.dell-lee.com',
 				secure: false,
 				pathRewrite: {
-					'header.json': 'demo.json'
+					'header.json': 'Demo.json'
 				},
 				changeOrigin: true,
 				headers: {
@@ -2570,7 +2569,7 @@ devServer: {//配置只在开发时有效，上线时后端也需配置
 
 ### EsLint 在 Webpack 中的配置
 
-【[demo](https://github.com/HChen318/webpack4/tree/main/eslint-demo)】
+【[Demo](https://github.com/HChen318/webpack4/tree/main/eslint-Demo)】
 
 安装：
 
@@ -2638,7 +2637,6 @@ rules: [{
 
 #### 4.resolve 参数合理配置
 
-   仓库源码 【[48](https://github.com/wudiufo/WebPack4-study/tree/master/lesson%2048)】
 
 引入资源文件写后缀，像 图片文件（.jpg, .png, .svg），逻辑代码配置在extensions中:extensions: ['.js', '.jsx']
 
@@ -2646,7 +2644,6 @@ rules: [{
 
 详细请看官方文档：[dll-plugin](https://webpack.js.org/plugins/dll-plugin/#root)
 
-仓库源码 【[49](https://github.com/wudiufo/WebPack4-study/tree/master/lesson%2049)】
 
 实现第三方模块只打包一次
 
@@ -2876,7 +2873,7 @@ new ParallelUglifyPlugin({
 
 配置多个 entry 里的 html 页面，用HtmlWebpackPlugin 插件，将打包好的j多个js分别插入到对应的html页面中。
 
-【[demo](https://github.com/HChen318/webpack4/tree/main/optimization)】
+【[Demo](https://github.com/HChen318/webpack4/tree/main/optimization)】
 
 在 webpack.common.js 中：
 
@@ -2986,7 +2983,7 @@ module.exports = configs
 
 ###  如何编写一个 Loader
 
-【[demo](https://github.com/HChen318/webpack4/tree/main/make-loader)】
+【[Demo](https://github.com/HChen318/webpack4/tree/main/make-loader)】
 
 ```bash
 mkdir make-loader
@@ -3040,7 +3037,7 @@ module.exports = {
 
 ###  如何编写一个 Plugin
 
-【[demo](https://github.com/HChen318/webpack4/tree/main/make-plugin)】
+【[Demo](https://github.com/HChen318/webpack4/tree/main/make-plugin)】
 
 
 
@@ -3062,7 +3059,7 @@ npm install @babel/traverse --save
 npm install @babel/preset-env --save
 ```
 
- 【[源码](https://github.com/HChen318/webpack4/tree/main/bundler)】
+ 【[Demo](https://github.com/HChen318/webpack4/tree/main/bundler)】
 
 
 ---
