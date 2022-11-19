@@ -88,7 +88,7 @@ Entrypoint main=bundle.js
 
 ##  二：Webpack核心概念
 
- | Entry | Output |  [Loader](###Loader) | [Plugin](###Plugin)  |
+ | Entry | Output |  [Loader](#Loader) | [Plugin](#Plugin)  |
  | ---- | ---- | ----| ----| 
 
 
@@ -324,7 +324,7 @@ module.exports = {
 
 详细请看官方文档：[asset-management](https://webpack.js.org/guides/asset-management)
 
-### plugin 
+### Plugin 
 **可以在webpack运行到某个时刻的时候，帮你做一些事情(生命周期)**
 
 使用plugins让打包更便捷
@@ -386,7 +386,6 @@ module.exports = {
 
 基本用法：在 webpack.config.js 中：
 
-::: details 查看代码
 ```js
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -411,7 +410,6 @@ module.exports = {
     ]
 };
 ```
-:::
 
 详细请看官网：[Output](https://webpack.js.org/configuration/output)  [output-management](https://webpack.js.org/guides/output-management)
 
