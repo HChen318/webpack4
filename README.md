@@ -87,9 +87,8 @@ Entrypoint main=bundle.js
 ```
 
 ##  二：Webpack核心概念
-
- | Entry | Output |  [Loader](#Loader) | [Plugin](#Plugin)  |
- | ---- | ---- | ----| ----| 
+ | [Entry](#Entry与Output的基础配置) | [Output](#Entry与Output的基础配置) |  [Loader](#Loader) | [Plugin](#Plugin)  | [SourceMap ](#SourceMap ) | [WebpackDevServer](#使用WebpackDevServer提升开发效率 )  | [热更新](#模块热替换)  | [Babel](#使用Babel处理ES6/7语法转义为ES5) |
+ | ---- | ---- | ----| ----| ----| ----| ----| ----| 
 
 
 ### Loader
@@ -522,7 +521,6 @@ module.exports = {
 ```
 
 
-
 2.在 webpack.config.js 中，加 devServer
 
 安装 `npm i webpack-dev-server –D`
@@ -743,7 +741,7 @@ if (module.hot) {
 
 ---
 
-### 使用 Babel 处理 ES6/7 语法  转义为ES5
+### 使用Babel处理ES6/7语法转义为ES5
 
 BABEL官网：https://babeljs.io/setup
 
