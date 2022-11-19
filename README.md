@@ -87,7 +87,7 @@ Entrypoint main=bundle.js
 ```
 
 ##  二：Webpack核心概念
- | [Entry](#Entry/Output) | [Output](#Entry/Output) |  [Loader](#Loader) | [Plugin](#Plugin)  | [SourceMap ](#SourceMap ) | [WebpackDevServer](#WebpackDevServer )  | [热更新](#HotModuleReplacement)  | [Babel](#Babel) |
+ | [Entry](#Entry/Output) | [Output](#Entry/Output) |  [Loader](#Loader) | [Plugin](#Plugin)  | [SourceMap ](#SourceMap ) | [WebpackDevServer](#WebpackDevServer )  | [HotModuleReplacement](#HotModuleReplacement)  | [Babel](#Babel) |
  | ---- | ---- | ----| ----| ----| ----| ----| ----| 
 
 
