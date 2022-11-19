@@ -87,7 +87,7 @@ Entrypoint main=bundle.js
 ```
 
 ##  二：Webpack核心概念
- | [Entry](#Entry与Output的基础配置) | [Output](#Entry与Output的基础配置) |  [Loader](#Loader) | [Plugin](#Plugin)  | [SourceMap ](#SourceMap ) | [WebpackDevServer](#使用WebpackDevServer提升开发效率 )  | [热更新](#模块热替换)  | [Babel](#使用Babel处理ES6/7语法转义为ES5) |
+ | [Entry](#Entry/Output) | [Output](#Entry/Output) |  [Loader](#Loader) | [Plugin](#Plugin)  | [SourceMap ](#SourceMap ) | [WebpackDevServer](#WebpackDevServer )  | [热更新](#HotModuleReplacement)  | [Babel](#Babel) |
  | ---- | ---- | ----| ----| ----| ----| ----| ----| 
 
 
@@ -379,7 +379,7 @@ module.exports = {
 
 ---
 
-### Entry与Output的基础配置
+### Entry/Output
 
 在打包多入口文件时的配置
 
@@ -414,7 +414,7 @@ module.exports = {
 
 ---
 
-### SourceMap 的配置
+### SourceMap
 
 sourcemap：打包编译后的文件和源文件的映射关系，用于开发者调试用。
 
@@ -498,7 +498,8 @@ module.exports = {
 
 ---
 
-### 使用WebpackDevServer 提升开发效率
+### WebpackDevServer 
+**提升开发效率**
 
 解决每次在src里编写完代码都需要手动重新运行 npm run dev
 
@@ -631,7 +632,7 @@ app.listen(3000, () => {
 
 ---
 
-### 模块热替换(hot module replacement)
+### HotModuleReplacement
 
 在 package.json 中：
 
@@ -741,7 +742,8 @@ if (module.hot) {
 
 ---
 
-### 使用Babel处理ES6/7语法转义为ES5
+### Babel
+**使用Babel处理ES6/7语法转义为ES5**
 
 BABEL官网：https://babeljs.io/setup
 
