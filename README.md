@@ -29,7 +29,7 @@ webpack4 配置学习
 [下载node](https://nodejs.org/en/)
 
 ### 1.4 初始化项目
-**参考文件lesson1**
+【[demo](https://github.com/HChen318/webpack4/tree/main/lesson1)】
 
 ```bash
 mkdir lesson1   // mac
@@ -386,6 +386,7 @@ module.exports = {
 
 基本用法：在 webpack.config.js 中：
 
+::: details 查看代码
 ```js
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -410,6 +411,7 @@ module.exports = {
     ]
 };
 ```
+:::
 
 详细请看官网：[Output](https://webpack.js.org/configuration/output)  [output-management](https://webpack.js.org/guides/output-management)
 
