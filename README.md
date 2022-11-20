@@ -48,7 +48,7 @@ npx webpack  // 不配置config文件,默认可以执行
 npx webpack --config + 自定义配置文件  // 自己指定配置文件来完成webpack的打包：
 ```
 
-::: details 点击查看
+::: details 点击查看 
 ```js
 const path = require('path')
 
